@@ -14,7 +14,7 @@ home_dir = os.getcwd()
 master_url = 'http://localhost'
 master_app = 'runestone'
 serving_dir = "./build/SubGoals"
-#dest = "../../static"
+dest = "../../static"
 
 from runestone import get_master_url
 
