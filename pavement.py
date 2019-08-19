@@ -20,14 +20,14 @@ from runestone import get_master_url
 
 master_url = None
 if master_url is None:
-master_url = get_master_url()
+    master_url = get_master_url()
 
 dynamic_pages = True
 
 if dynamic_pages:
-dest = './published'
+    dest = './published'
 else:
-dest = '../../static'
+    dest = '../../static'
 
 options(
     sphinx = Bunch(docroot=".",),
