@@ -11,10 +11,23 @@ from socket import gethostname
 sys.path.append(os.getcwd())
 
 home_dir = os.getcwd()
-master_url = 'http://127.0.0.1:8000'
+master_url = 'http://localhost'
 master_app = 'runestone'
 serving_dir = "./build/SubGoals"
-dest = "../../static"
+#dest = "../../static"
+
+from runestone import get_master_url
+
+master_url = None
+if master_url is None:
+master_url = get_master_url()
+
+dynamic_pages = True
+
+if dynamic_pages:
+dest = './published'
+else:
+dest = '../../static'
 
 options(
     sphinx = Bunch(docroot=".",),
@@ -38,6 +51,7 @@ options(
                        'jobe_server': 'http://jobe2.cosc.canterbury.ac.nz',
                        'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
                        'proxy_uri_files': '/jobe/index.php/restapi/files/',
+                       'dynamic_pages': dynamic_pages,
                        'downloads_enabled': 'false',
                        'enable_chatcodes': 'False',
                        'allow_pairs': 'False'
@@ -58,3 +72,4 @@ options.build.template_args['runestone_version'] = version
 options.build.template_args['dburl'] = get_dburl(outer=locals())
 
 from runestone import build  # build is called implicitly by the paver driver.
+
