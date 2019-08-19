@@ -13,6 +13,7 @@
 
 import sys, os
 
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -106,6 +107,17 @@ rst_prolog = (
 .. |blank| replace:: :blank:`x`
 """
 )
+
+#For dynamic pages
+import pkg_resources
+
+templates_path = [pkg_resources.resource_filename('runestone', 'common/project_template/_templates')]
+
+html_theme_path = [pkg_resources.resource_filename('runestone', 'common/project_template/_templates/plugin_layouts')]
+
+#If you haven't added anything to your _static folder then you can simplify that to :
+
+html_static_path = runestone_static_dirs()
 
 # Select whether to use server-side grading where possible. Server-side grading
 # requires **all** the following:
