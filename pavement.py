@@ -14,6 +14,8 @@ home_dir = os.getcwd()
 master_url = 'http://localhost'
 master_app = 'runestone'
 #serving_dir = "./build/SubGoals"
+serving_dir = "./books/published/SubGoals"
+
 #dest = "../../static"
 
 from runestone import get_master_url
@@ -33,24 +35,24 @@ options(
     sphinx = Bunch(docroot=".",),
 
     build = Bunch(
-        builddir="./build/SubGoals",
+        builddir="./books/published/SubGoals",
         sourcedir="_sources",
-        outdir="./build/SubGoals",
+        outdir="./books/published/SubGoals",
         confdir=".",
         project_name = "SubGoals",
         template_args={'course_id': 'SubGoals',
-                     #  'login_required':'true',
-                      # 'appname':master_app,
-                       #'loglevel': 10,
-                       #'course_url':master_url,
-                       #'use_services': 'true',
-                       #'python3': 'true',
-                       #'dburl': 'postgresql://user:password@localhost/runestone',
-                       #'default_ac_lang': 'Java',
-                       #'basecourse': 'SubGoals',
-                       #'jobe_server': 'http://jobe2.cosc.canterbury.ac.nz',
-                       #'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
-                       #'proxy_uri_files': '/jobe/index.php/restapi/files/',
+                      'login_required':'true',
+                       'appname':master_app,
+                       'loglevel': 10,
+                       'course_url':master_url,
+                       'use_services': 'true',
+                       'python3': 'true',
+                       'dburl': 'postgresql://user:password@localhost/runestone',
+                       'default_ac_lang': 'Java',
+                       'basecourse': 'SubGoals',
+                       'jobe_server': 'http://jobe2.cosc.canterbury.ac.nz',
+                       'proxy_uri_runs': '/jobe/index.php/restapi/runs/',
+                       'proxy_uri_files': '/jobe/index.php/restapi/files/',
                        'dynamic_pages': dynamic_pages,
                        'downloads_enabled': 'false',
                        'enable_chatcodes': 'False',
