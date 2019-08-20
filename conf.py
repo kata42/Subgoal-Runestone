@@ -23,6 +23,7 @@ from runestone import runestone_static_dirs, runestone_extensions
 
 # -- General configuration -----------------------------------------------------
 
+
 # If your documentation needs a minimal Sphinx version, state it here.
 #needs_sphinx = '1.0'
 
@@ -32,8 +33,14 @@ extensions = ['sphinx.ext.mathjax'] + runestone_extensions()
 
 #,'runestone.video','runestone.reveal','runestone.poll','runestone.tabbedStuff','runestone.disqus','runestone.codelens','runestone.activecode', 'runestone.assess', 'runestone.animation','runestone.meta', 'runestone.parsons', 'runestone.blockly', 'runestone.livecode','runestone.accessibility']
 
+#For dynamic pages
+import pkg_resources
+
+templates_path = [pkg_resources.resource_filename('runestone', 'common/project_template/_templates')]
+
+html_theme_path = [pkg_resources.resource_filename('runestone', 'common/project_template/_templates/plugin_layouts')]
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+#templates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -108,12 +115,7 @@ rst_prolog = (
 """
 )
 
-#For dynamic pages
-import pkg_resources
 
-templates_path = [pkg_resources.resource_filename('runestone', 'common/project_template/_templates')]
-
-html_theme_path = [pkg_resources.resource_filename('runestone', 'common/project_template/_templates/plugin_layouts')]
 
 #If you haven't added anything to your _static folder then you can simplify that to :
 
@@ -207,7 +209,7 @@ html_short_title ='Runestone Interactive Overview'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 
-html_static_path = ['_static']  + runestone_static_dirs()
+#html_static_path = ['_static']  + runestone_static_dirs()
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
